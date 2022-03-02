@@ -108,6 +108,9 @@ def main(username, password, search_term, filepath, page_sort='Top'):
     list_number_Like = []
     list_times = []
     while not end_of_scroll_region:
+
+        ####            NAMES OF PUBLISHER
+
         names_of_publisher = driver.find_elements(By.CLASS_NAME,
                                                   "css-4rbku5 css-18t94o4 css-1dbjc4n r-1loqt21 r-1wbh5a2 r-dnmrzs r-1ny4l3l".replace(
                                                       ' ', '.'))
@@ -115,6 +118,11 @@ def main(username, password, search_term, filepath, page_sort='Top'):
         for i in range(len(names_of_publisher)):
             list_main_publisher.append(names_of_publisher[i].text)
             # print(names_of_publisher[i].text)
+
+
+
+
+        ####                TEXT INFO
 
         text_info = driver.find_elements(By.CLASS_NAME,
                                          "css-901oao r-18jsvk2 r-37j5jr r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-bnwqim r-qvutc0".replace(
@@ -140,6 +148,11 @@ def main(username, password, search_term, filepath, page_sort='Top'):
             list_pages.append(list_ezer_pages)
             list_links.append(list_ezer_links)
 
+
+
+
+        ####            NUMBERS OF REPLIES, RETWEETS AND LIKES
+
         number_info = driver.find_elements(By.CLASS_NAME,
                                            "css-1dbjc4n r-1ta3fxp r-18u37iz r-1wtj0ep r-1s2bzr4 r-1mdbhws".replace(' ',
                                                                                                                    '.'))
@@ -152,17 +165,59 @@ def main(username, password, search_term, filepath, page_sort='Top'):
             list_number_retweet.append(numbers_list[1].text)
             list_number_Like.append(numbers_list[2].text)
 
-        list_time = driver.find_elements(By.CLASS_NAME,
-                                         "css-4rbku5 css-18t94o4 css-901oao r-14j79pv r-1loqt21 r-1q142lx r-37j5jr r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-3s2u2q r-qvutc0".replace(
-                                             ' ', '.'))
 
-        for i in range(len(list_time)):
-            list_times.append(list_time[i].text)
+
+
+
+        ####       DATES
+
+
+        TIMES = driver.find_elements(By.TAG_NAME, 'time')
+        list_times = []
+        for item in TIMES:
+            time = item.get_attribute('datetime')
+            time = time.replace('T', ' ')
+            list_times.append(time.replace('Z', ' '))
+        
+
+
+        #list_time = driver.find_elements(By.CLASS_NAME,
+        #                                 "css-4rbku5 css-18t94o4 css-901oao r-14j79pv r-1loqt21 r-1q142lx r-37j5jr r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-3s2u2q r-qvutc0".replace(
+        #                                     ' ', '.'))
+
+        #for i in range(len(list_time)):
+        #    list_times.append(list_time[i].text)
             # print(list_time[i].text)
+
+
+
+
+        ####           NUMBER OF IMAGES
+
+        list_tweet = driver.find_elements(By.CLASS_NAME,
+                                          "css-1dbjc4n r-1ets6dv r-1867qdf r-1phboty r-rs99b7 r-1ny4l3l r-1udh08x r-o7ynqc r-6416eg".replace(
+                                              ' ', '.'))
+        list_images = []
+
+
+        for i in list_tweet:
+            images_for_tweet = i.find_elements(By.TAG_NAME, "img")
+            list_images.append(len(images_for_tweet))
+
+
+
+
+
+
+
 
         last_position, end_of_scroll_region = scroll_down_page(driver, last_position)
 
-    rows = zip(list_main_publisher, list_hashtags, list_pages, list_links, list_number_reply, list_number_retweet, list_number_Like)
+
+
+
+
+    rows = zip(list_main_publisher, list_hashtags, list_pages, list_links, list_number_reply, list_number_retweet, list_number_Like,list_times, list_images)
     #rows = zip(list_main_publisher)
 
     with open("file.csv", "w") as f:
