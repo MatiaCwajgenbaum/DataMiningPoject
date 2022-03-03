@@ -1,19 +1,16 @@
-from selenium.webdriver.chrome.service import Service
-from parsel import Selector
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import time
 from time import sleep
 import csv
 
 
 class Tweets_extractor:
-    def __init__(self, Search_term, PATH):
-        self.search_term = Search_term
-        self.PATH = PATH
+    def __init__(self, search_term, path_web, quantity_of_tweets, path_file):
+        self.search_term = search_term
+        self.path_web = path_web
+        self.path_file = path_file
+        self.quantity_of_tweets = quantity_of_tweets
 
         self.list_of_publishers = []
         self.list_hashtags = []
@@ -24,6 +21,7 @@ class Tweets_extractor:
         self.list_number_Like = []
         self.list_times = []
         self.list_images = []
+        self.list_videos = []
 
     def _scroll_down_page(self, driver, last_position, num_seconds_to_load=0.5, scroll_attempt=0, max_attempts=5):
         """The function will try to scroll down the page and will check the current
@@ -35,54 +33,44 @@ class Tweets_extractor:
         sleep(num_seconds_to_load)
         curr_position = driver.execute_script("return window.pageYOffset;")
         if curr_position == last_position:
-            if scroll_attempt < max_attempts:
+            if scroll_attempt >= max_attempts:
                 end_of_scroll_region = True
             else:
                 self._scroll_down_page(last_position, curr_position, scroll_attempt + 1)
         last_position = curr_position
         return last_position, end_of_scroll_region
 
-    def _save_tweet_data_to_csv(self, records, filepath, mode='a+'):
-        header = ['User', 'Handle', 'PostDate', 'TweetText', 'ReplyCount', 'RetweetCount', 'LikeCount']
+    def _save_tweet_data_to_csv(self, records, filepath, mode='w'):
+        """create csv file with all the records"""
+        header = ['NAMES OF PUBLISHERS', 'HASHTAGS', 'USERS TAGGED', 'LINKS', 'ReplyCount', 'RetweetCount', 'LikeCount',
+                  'DATES', 'NUMBER OF IMAGES']
         with open(filepath, mode=mode, newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
-            if mode == 'w':
-                writer.writerow(header)
-            if records:
-                writer.writerow(records)
+            writer.writerow(header)
+            for row in records:
+                writer.writerow(row)
 
-    def _create_webdriver_instance(self, PATH):
+    def _create_webdriver_instance(self):
         options = Options()
         options.headless = True  # hide GUI
         options.add_argument("--window-size=1920,1080")  # set window size to native GUI size
         options.add_argument("start-maximized")
 
-        # PATH = "/home/maya/Desktop/chromedriver.exe"
-        driver = webdriver.Chrome(PATH, options=options)
+        driver = webdriver.Chrome(self.path_web, options=options)
 
         return driver
 
-    def _change_page_sort(self, tab_name, driver):
-        """Options for this program are `Latest` and `Top`"""
-        tab = driver.find_element_by_link_text(tab_name)
-        tab.click()
+    def initialize_driver(self):
+        """initialize the wanted page"""
+        driver = self._create_webdriver_instance()
+        driver.get('https://twitter.com/search?q=' + self.search_term)
+        driver.implicitly_wait(10)
 
-    def _collect_all_tweets_from_current_view(self, driver, lookback_limit=25):
-        """The page is continously loaded, so as you scroll down the number of tweets returned by this function will
-         continue to grow. To limit the risk of 're-processing' the same tweet over and over again, you can set the
-         `lookback_limit` to only process the last `x` number of tweets extracted from the page in each iteration.
-         You may need to play around with this number to get something that works for you. I've set the default
-         based on my computer settings and internet speed, etc..."""
-        page_cards = driver.find_elements(By.CLASS_NAME,
-                                          "css-4rbku5 css-18t94o4 css-1dbjc4n r-1loqt21 r-1wbh5a2 r-dnmrzs r-1ny4l3l".replace(
-                                              ' ', '.'))
-        if len(page_cards) <= lookback_limit:
-            return page_cards
-        else:
-            return page_cards[-lookback_limit:]
+        return driver
 
     def Return_attribute(self, attribute):
-        return self.attribute
+        """return attribute"""
+        return getattr(self, attribute)
 
         ####     NAMES OF PUBLISHERS
 
@@ -92,8 +80,10 @@ class Tweets_extractor:
                                               ' ', '.'))
 
         for i in range(len(Publishers)):
-            self.List_of_publishers.append(Publishers[i].text[:Publishers[i].text.index('\n')])
-        return self.List_of_publishers
+            if '\n' in Publishers[i].text:
+                self.list_of_publishers.append(Publishers[i].text[:Publishers[i].text.index('\n')])
+            else:
+                self.list_of_publishers.append(Publishers[i])
 
         ####       HASHTAGS, USERS TAGGED, LINKS
 
@@ -112,12 +102,12 @@ class Tweets_extractor:
             for element in hashtag_list:
                 if '#' in element.text:
                     list_ezer_hashtag.append(element.text)
-                    break
+                    continue
                 if '@' in element.text:
-                    list_ezer_pages(element.text)
-                    break
+                    list_ezer_pages.append(element.text)
+                    continue
                 list_ezer_links.append(element.text)
-            # print(list_ezer)
+
             self.list_hashtags.append(list_ezer_hashtag)
             self.list_users_tagged.append(list_ezer_pages)
             self.list_links.append(list_ezer_links)
@@ -138,19 +128,15 @@ class Tweets_extractor:
             self.list_number_retweet.append(numbers_list[1].text)
             self.list_number_Like.append(numbers_list[2].text)
 
-        driver.quit()
-
         ####      DATES
 
     def _Extract_Dates(self, driver):
 
         TIMES = driver.find_elements(By.TAG_NAME, 'time')
-        list_times = []
         for item in TIMES:
             time = item.get_attribute('datetime')
             time = time.replace('T', ' ')
             self.list_times.append(time.replace('Z', ' '))
-        driver.quit()
 
         ####           NUMBER OF IMAGES
 
@@ -164,18 +150,14 @@ class Tweets_extractor:
             images_for_tweet = i.find_elements(By.TAG_NAME, "img")
             self.list_images.append(len(images_for_tweet))
 
-        driver.quit()
 
-    def Extract_ALL(self, filepath, quantity_of_tweets):
+    def Extract_ALL(self, driver):
         """
         Returns a csv file which contains all the features extracted from the webpage
         """
-        driver = self._create_webdriver_instance(self.PATH)
-        driver.get('https://twitter.com/search?q=' + self.search_term)
-        self._save_tweet_data_to_csv(None, filepath, 'w')  # create file for saving records
+
         last_position = None
         end_of_scroll_region = False
-        unique_tweets = set()
         while not end_of_scroll_region:
             self._Extract_Names(driver)
             self._Extract_hashtags_userstagged_links(driver)
@@ -183,14 +165,10 @@ class Tweets_extractor:
             self._Extract_Dates(driver)
             self._Extract_Num_images(driver)
             last_position, end_of_scroll_region = self._scroll_down_page(driver, last_position)
+            if int(self.quantity_of_tweets) < len(self.list_of_publishers):
+                break
+        records = zip(self.list_of_publishers, self.list_hashtags, self.list_users_tagged, self.list_links,
+                      self.list_number_reply, self.list_number_retweet, self.list_number_Like, self.list_times,
+                      self.list_images)
 
-        rows = zip(self.list_of_publishers, self.list_hashtags, self.list_users_tagged, self.list_links,
-                   self.list_number_reply, self.list_number_retweet, self.list_number_Like, self.list_times,
-                   self.list_images)
-
-        with open("file.csv", "w") as f:
-            writer = csv.writer(f)
-            for row in rows:
-                writer.writerow(row)
-
-        driver.quit()
+        self._save_tweet_data_to_csv(records, self.path_file)
