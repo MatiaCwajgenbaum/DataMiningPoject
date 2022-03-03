@@ -4,7 +4,7 @@
 Goal: scraping tweets from Twitter
 
 Files needed: Tweets_Extractor.py and main.py
-The first one is the code of the class Tweets_extractor, the second file main.py is the file from where the user is invited to choose the parameters in order to create an instance of the class.
+The first one is the code of the Tweets_extractor class, the second file main.py is the file from where the user is invited to choose the parameters in order to create an instance of the class.
 
   
   
