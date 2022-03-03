@@ -56,9 +56,9 @@ class Tweets_extractor:
         options.headless = True  # hide GUI
         options.add_argument("--window-size=1920,1080")  # set window size to native GUI size
         options.add_argument("start-maximized")
+        s = Service(PATH)
 
-        # PATH = "/home/maya/Desktop/chromedriver.exe"
-        driver = webdriver.Chrome(PATH, options=options)
+        driver = webdriver.Chrome(service=s)
 
         return driver
 
@@ -92,8 +92,8 @@ class Tweets_extractor:
                                               ' ', '.'))
 
         for i in range(len(Publishers)):
-            self.List_of_publishers.append(Publishers[i].text[:Publishers[i].text.index('\n')])
-        return self.List_of_publishers
+            self.list_of_publishers.append(Publishers[i].text[:Publishers[i].text.index('\n')])
+        return self.list_of_publishers
 
         ####       HASHTAGS, USERS TAGGED, LINKS
 
@@ -166,7 +166,7 @@ class Tweets_extractor:
 
         driver.quit()
 
-    def Extract_ALL(self, filepath, quantity_of_tweets):
+    def Extract_ALL(self, filepath):
         """
         Returns a csv file which contains all the features extracted from the webpage
         """
@@ -194,3 +194,7 @@ class Tweets_extractor:
                 writer.writerow(row)
 
         driver.quit()
+
+
+
+
