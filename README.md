@@ -1,27 +1,42 @@
 # Data Mininig project
 ## Maya Yanko & Matia Cwajgenbaum
 
-Goal: scraping information from website
-The chosen website: twitter
+Goal: scraping tweets from Twitter
 
-First downlowd chromedriver.exe from the following website: [https://www.youtube.com/watch?v=Xjv1sY630Uc] and save the path you put the file.
-The user should insert the follwing inputs:
-* hashtag
-* the quantity of tweets he wish to analysis
-* the path of the .exe file
-* the path to save the csv file - this optional, if no input insert, it will save as "hashtag.csv"
-Running the program: main.py hashtag, number, path. example: main.py cats 25 /home/maya/Desktop/chromedriver.exe
-Then he will get the following information on the tweets connect to the specific hashtag on csv file:
+Files needed: Tweets_Extractor.py and main.py
+The first one is the code of the class Tweets_extractor, the second file main.py is the file from where the user is invited to choose the parameters in order to create an instance of the class.
 
-* The name of publisher - string
-* The related hashtags - list 
-* The related pages -list
-* The number of replies - float
-* The number of retweets - float
-* The number of likes - float
-* The number of images -integer
-* Date - the date
+  
+  
+  
 
-All those features and the function of extraction is order by class
+Explanation on how to use the material:
 
-Another function of the class: extracting a specific feature
+Users interact only with the main.py file.
+
+The user should insert the following inputs:
+* Words or expression to be typed in the search bar
+* the quantity of tweets he wants to extract
+* the path of the csv file - which is optional. If no input inserted: the csv file will be saved as "WORD.csv" where WORD = words typed in the search bar.
+
+Running the program: main.py Search expression searched, number of tweets, (path) <-- Optionnal . Example: main.py cats 25 
+
+The following informations from each tweet will be saved:
+
+* Names of publishers - string
+* Related hashtags - list 
+* Tagged Users -list
+* Number of replies - float
+* Number of retweets - float
+* Number of likes - float
+* Number of images -integer
+* Date - specific date format 
+
+
+Other functionality of the class:
+The user can also extract only one specific feature for all tweets using one of the following methods:
+            self._Extract_Names(driver)
+            self._Extract_hashtags_userstagged_links(driver)
+            self._Extract_NumReplies_retweets_likes(driver)
+            self._Extract_Dates(driver)
+            self._Extract_Num_images(driver)
