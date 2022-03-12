@@ -14,9 +14,10 @@ class Tweets_extractor:
 
     def __init__(self, search_term, quantity_of_tweets, path_CSVfile):
         """
-        Our class has 3 attributes the user need to enter: 1) the terms he wants to type in the search bar.
-          2)How many tweets does he want to extract
-        and 3) the path of the csv file in which the tweets will be saved
+        Our class has 1 attribute the user need to enter: 1) the terms he wants to type in the search bar.
+        and two optional attributes:
+          1)How many tweets does he want to extract
+        and 2) the path of the csv file in which the tweets will be saved
 
         There are other attributes corresponding to the different features the user can extract for each tweet
          from the page, for example, self.list_hashtags is a list of the hashtags appearing on each tweet:
@@ -28,9 +29,11 @@ class Tweets_extractor:
         self.quantity_of_tweets = quantity_of_tweets
 
         self.list_of_publishers = []
+        self.list_of_publishers_links = set()
         self.list_hashtags = []
         self.list_users_tagged = []
         self.list_links = []
+        self.list_pages_links = set()
         self.list_number_reply = []
         self.list_number_retweet = []
         self.list_number_Like = []
@@ -99,19 +102,19 @@ class Tweets_extractor:
         """
         return getattr(self, attribute)
 
-    def _Extract_Names(self, driver):
+    def _Extract_Names_and_links(self, driver):
         """
         Returns a list of the names of the different tweet publishers
         """
         Publishers = driver.find_elements(By.CLASS_NAME,
                                           "css-4rbku5 css-18t94o4 css-1dbjc4n r-1loqt21 r-1wbh5a2 r-dnmrzs r-1ny4l3l".replace(
                                               ' ', '.'))
-
         for i in range(len(Publishers)):
+            self.list_of_publishers_links.add(Publishers[i].get_attribute('href'))
             if '\n' in Publishers[i].text:
                 self.list_of_publishers.append(Publishers[i].text[:Publishers[i].text.index('\n')])
             else:
-                self.list_of_publishers.append(Publishers[i])
+                self.list_of_publishers.append(Publishers[i].text)
 
     def _Extract_hashtags_userstagged_links(self, driver):
         """"
@@ -134,9 +137,9 @@ class Tweets_extractor:
                     continue
                 if '@' in element.text:
                     list_ezer_pages.append(element.text)
+                    self.list_pages_links.add(element.get_attribute('href'))
                     continue
                 list_ezer_links.append(element.text)
-
             self.list_hashtags.append(list_ezer_hashtag)
             self.list_users_tagged.append(list_ezer_pages)
             self.list_links.append(list_ezer_links)
@@ -171,8 +174,6 @@ class Tweets_extractor:
             time = time.replace('T', ' ')
             self.list_times.append(time.replace('Z', ' '))
 
-
-
     def _Extract_Num_images(self, driver):
         """
         Returns a list giving the number of images present in every tweet.
@@ -195,7 +196,7 @@ class Tweets_extractor:
         last_position = None
         end_of_scroll_region = False
         while not end_of_scroll_region:
-            self._Extract_Names(driver)
+            self._Extract_Names_and_links(driver)
             self._Extract_hashtags_userstagged_links(driver)
             self._Extract_NumReplies_retweets_likes(driver)
             self._Extract_Dates(driver)
@@ -214,3 +215,5 @@ class Tweets_extractor:
                       self.list_images[:int(self.quantity_of_tweets)])
 
         self._save_tweet_data_to_csv(records, self.path_CSVfile)
+
+
