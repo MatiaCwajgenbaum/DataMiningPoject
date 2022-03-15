@@ -202,6 +202,7 @@ class Tweets_extractor:
             self._Extract_Dates(driver)
             self._Extract_Num_images(driver)
             last_position, end_of_scroll_region = self._scroll_down_page(driver, last_position)
+            break
             if int(self.quantity_of_tweets) < len(self.list_of_publishers):
                 break
         records = zip(self.list_of_publishers[:int(self.quantity_of_tweets)],
@@ -214,6 +215,7 @@ class Tweets_extractor:
                       self.list_times[:int(self.quantity_of_tweets)],
                       self.list_images[:int(self.quantity_of_tweets)])
 
-        self._save_tweet_data_to_csv(records, self.path_CSVfile)
+        # self._save_tweet_data_to_csv(records, self.path_CSVfile)
+        return records
 
 

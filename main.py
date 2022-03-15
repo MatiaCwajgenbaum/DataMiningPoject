@@ -1,5 +1,6 @@
 from Tweets_Extractor import *
 from User_Extractor import *
+from build_database import *
 import argparse
 
 
@@ -12,8 +13,12 @@ def main(search_term, quantity_of_tweets, path_csv_file):
     try:
         tweets = Tweets_extractor(search_term, quantity_of_tweets, path_csv_file)
         driver = tweets.initialize_driver()
-        tweets.Extract_ALL(driver)
+        records = tweets.Extract_ALL(driver)
         # tweets._Extract_Names_and_links(driver)
+        # create_DATABASE()
+        use_DATABASE()
+        create_table(search_term)
+        update_table(records, search_term)
         user_info = User_extractor(tweets.list_of_publishers_links, driver)
         # tweets._Extract_hashtags_userstagged_links(driver)
         pages_info = User_extractor(tweets.list_pages_links, driver)
