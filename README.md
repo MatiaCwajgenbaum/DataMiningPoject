@@ -18,7 +18,9 @@ main.py is the file from where the user is invited to choose the parameters in o
 
 EXPLANATIONS ON HOW TO USE THE MATERIAL:
 
-Users interact only with the main.py file.
+!!!! User should first change the id and password in the build_database.py file and replace the existing one by his own.
+Then,
+User should interact only with the main.py file.
 
 The user should insert the following inputs:
 
