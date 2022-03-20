@@ -6,7 +6,7 @@ Goal: scraping tweets from Twitter and storing them into a Database
 FILES NEEDED: Tweets_Extractor.py, User_Extractor.py, build_database.py and main.py
 
 Tweets_extractor.py is a class that extracts a specific number of tweets related to a certain search term,
-User_Extractor.py is a class that extracts all the users related to the tweets already extracted.
+User_Extractor.py is a class that extracts the publishers of the tweets already extracted.
 
 build_database.py is the code that manages the creation of the database and of the tables in it.
 
