@@ -1,8 +1,12 @@
 import pymysql
 
+### User has to type here his own id and password for mysql
+USER = "user????"
+PASSWORD = "password????"
+
 connection = pymysql.connect(host="localhost",
-                             user="maya95",
-                             password="MSmaya2035!",
+                             user=USER,
+                             password=PASSWORD,
                              cursorclass=pymysql.cursors.DictCursor)
 cursor = connection.cursor()
 
