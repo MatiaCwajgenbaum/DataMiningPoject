@@ -1,6 +1,6 @@
 import requests
-import pymysql
 import configparser
+from build_database import *
 from Config import *
 
 config = configparser.RawConfigParser()
@@ -43,7 +43,7 @@ def connect_to_endpoint(url):
     return response.json()
 
 
-def Users_updater(list_of_usernames):
+def users_updater(list_of_usernames):
     url = create_url(list_of_usernames)
     json_response = connect_to_endpoint(url)
     rows = []
@@ -61,53 +61,26 @@ def Users_updater(list_of_usernames):
     return rows
 
 
-def execute_sql(sql, cursor):
-    """execute the sql query"""
-    cursor.execute(sql)
-    result = cursor.fetchall()
-    print(result)
-    return result
+def add_columns(cursors):
+    query_update = "ALTER TABLE Users ADD created_at DATE, ADD description VARCHAR(200), ADD listed_count INT, " \
+                   "ADD tweet_count INT, ADD verified BOOL"
+    cursors.execute(query_update)
 
 
-def use_db(cursor):
-    query = "USE Tweets"
-    cursor.execute(query)
-
-
-def add_columns(cursor):
-    query_update = "ALTER TABLE users ADD created_at DATE, ADD description VARCHAR(200), ADD listed_count INT, ADD tweet_count INT, ADD verified BOOL;"
-    cursor.execute(query_update)
-
-
-def fill_new_columns(record, cursor):
-    for row in Users_updater(record):
-        sql = "UPDATE users SET created_at=%s, description=%s, listed_count=%s, tweet_count=%s, verified=%s where NAME_OF_PUBLISHER=%s"
-        cursor.execute(sql,
-                       (row[1][:-4], row[2], row[5], row[6], row[8], row[0]))
+def fill_new_columns(record, cursors):
+    for row in users_updater(record):
+        sql = "UPDATE users SET created_at=%s, description=%s, listed_count=%s, tweet_count=%s, verified=%s where " \
+              "NAME_OF_PUBLISHER=%s"
+        cursors.execute(sql,
+                        (row[1][:-4], row[2], row[5], row[6], row[8], row[0]))
         print((row[1], row[2], row[5], row[6], row[8], row[0]))
     connection.commit()
 
 
-def get_list_usernames_from_table(cursor):
-    query = "select NAME_OF_PUBLISHER from users;"
-    cursor.execute(query)
-    result = cursor.fetchall()
+def get_list_usernames_from_table(cursors):
+    query = "SELECT name_of_publisher from Users"
+    result = cursors.execute(query)
     output_list = []
     for name_dict in result:
-        output_list.append(name_dict['NAME_OF_PUBLISHER'])
+        output_list.append(name_dict['name_of_publisher'])
     return output_list
-
-
-if __name__ == "__main__":
-    connection = pymysql.connect(host="localhost",
-                                 user=USER,
-                                 password=PASSWORD,
-                                 cursorclass=pymysql.cursors.DictCursor)
-    cursor = connection.cursor()
-    use_db(cursor)
-    try:
-        add_columns(cursor)
-    except pymysql.err.OperationalError as err:
-        print('columns already created')
-    record = get_list_usernames_from_table(cursor)
-    fill_new_columns(record, cursor)

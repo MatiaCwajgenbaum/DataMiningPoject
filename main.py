@@ -1,10 +1,11 @@
 from Driver import *
 from Tweets_Extractor import *
-
+# from API import *
 from User_Extractor import *
 from build_database import *
 
 import argparse
+import logging
 
 
 def create_database_and_tables():
@@ -30,27 +31,44 @@ def main(search_term, first_run, quantity_of_tweets, path_csv_file):
 
     try:
         # extract information
+        logging.info("initialize the driver for scraping")
         driver = initialize_driver(search_term)
+        logging.info("build instance of the Tweets class")
         tweets = Tweets_extractor(search_term, quantity_of_tweets, path_csv_file)
+        logging.info("scraping Tweets")
         records_tweets = tweets.extract_all(driver)
+        logging.info("build instance of the Users class")
         users = User_extractor(tweets.list_of_publishers_links)
+        logging.info("scraping Tweets")
         records_users = users.user_extract(driver)
 
         # create database and tables if this the first running
         if first_run:
+            logging.info("create database and tables for first running")
             create_database_and_tables()
 
         # update tables
+        logging.info("update tables in the database with the new info get from scraping")
         update_table_users(records_users)
         update_table_tweets(records_tweets, search_term)
         driver.quit()
-    except ValueError as va:
-        print(f'{va}, Make sure you type an integer as second argument !')
+
+        # API
+        # logging.info("get extra information on user using Twitter API")
+        # add columns to User table if this the first running
+        # if first_run:
+        #     add_columns(cursor)
+        # record_api = get_list_usernames_from_table(cursor)
+        # logging.info("update User' table with new info get from Twitter API")
+        # fill_new_columns(record_api, cursor)
     except PermissionError as Pa:
+        logging.error("the user insert wrong type of parameters")
         print(f'{Pa}, Make sure the path you typed really exists or that you have permission to access it! !')
 
 
 if __name__ == '__main__':
+    logging.basicConfig(filename=LOGGING_FILE, format=FORMAT, level=logging.INFO)
+    logging.info("get parameters from the user")
     parser = argparse.ArgumentParser()
     parser.add_argument("term", help="the text you want to search in twitter", type=str)
     parser.add_argument("first_run", help="check if its the first time you run the code", type=bool)
@@ -59,9 +77,14 @@ if __name__ == '__main__':
     try:
         args = parser.parse_args()
         if not args.number_of_tweets:
-            args.number_of_tweets = 150
+            args.number_of_tweets = MAX_NUM_TWEETS
         if not args.pathfile:
             args.pathfile = args.term + '.csv'
-        main(args.term, args.first_run, args.number_of_tweets, args.pathfile)
+        if not isinstance(args.number_of_tweets, int):
+            logging.error("the user insert wrong type of parameters")
+            print(f'Make sure you type an integer as number_of_tweets!')
+        else:
+            main(args.term, args.first_run, args.number_of_tweets, args.pathfile)
     except SystemExit:
+        logging.error("the user insert wrong number of parameters")
         print('Sorry, you need to type at least one arguments! 1) the text you want to search in twitter')

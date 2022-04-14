@@ -1,0 +1,401 @@
+2022-04-14 15:19:56,838-INFO-FILE:main.py-FUNC:<module>-LINE:71-get parameters from the user
+2022-04-14 15:19:56,839-INFO-FILE:main.py-FUNC:main-LINE:34-initialize the driver for scraping
+2022-04-14 15:19:58,533-INFO-FILE:utils.py-FUNC:download_chromedriver-LINE:235-Chromedriver is already installed.
+2022-04-14 15:20:03,038-INFO-FILE:main.py-FUNC:main-LINE:36-build instance of the Tweets class
+2022-04-14 15:20:03,038-INFO-FILE:main.py-FUNC:main-LINE:38-scraping Tweets
+2022-04-14 15:20:04,014-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_tweets-LINE:223-the scraping of Tweets succeed
+2022-04-14 15:20:04,071-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:20:04,402-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:20:04,424-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:20:04,486-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:20:04,528-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:20:34,658-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:20:34,731-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:20:44,802-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:20:44,838-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:20:44,921-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:21:05,088-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:21:05,135-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:21:15,174-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:21:15,207-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:21:15,286-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:21:35,418-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:21:35,472-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:21:35,493-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:21:35,642-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:21:35,714-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:22:06,008-INFO-FILE:Tweets_Extractor.py-FUNC:_scroll_down_page-LINE:47-scroll_down_page for more Tweets
+2022-04-14 15:22:06,529-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_tweets-LINE:223-the scraping of Tweets succeed
+2022-04-14 15:22:06,537-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:22:06,595-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:22:06,623-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:22:06,691-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:22:06,735-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:22:26,863-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:22:26,921-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:22:36,938-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:22:36,972-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:22:37,046-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:23:17,254-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:23:17,308-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:23:17,332-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:23:17,567-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:23:17,646-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:23:37,812-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:23:37,860-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:23:37,882-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:23:38,017-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:23:38,101-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:23:48,234-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:23:48,282-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:23:48,303-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:23:48,430-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:23:48,503-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:24:18,699-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:24:18,747-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:24:18,761-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:24:18,928-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:24:18,978-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:24:49,138-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:24:49,189-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:24:49,212-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:24:49,348-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:24:49,429-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:25:19,613-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:25:19,661-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:25:19,675-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:25:19,740-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:25:19,800-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:25:50,152-INFO-FILE:Tweets_Extractor.py-FUNC:_scroll_down_page-LINE:47-scroll_down_page for more Tweets
+2022-04-14 15:25:50,661-INFO-FILE:main.py-FUNC:main-LINE:40-build instance of the Users class
+2022-04-14 15:25:50,661-INFO-FILE:main.py-FUNC:main-LINE:42-scraping Tweets
+2022-04-14 15:25:51,673-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:29:33,215-INFO-FILE:main.py-FUNC:<module>-LINE:71-get parameters from the user
+2022-04-14 15:29:33,218-INFO-FILE:main.py-FUNC:main-LINE:34-initialize the driver for scraping
+2022-04-14 15:29:34,547-INFO-FILE:utils.py-FUNC:download_chromedriver-LINE:235-Chromedriver is already installed.
+2022-04-14 15:29:38,941-INFO-FILE:main.py-FUNC:main-LINE:36-build instance of the Tweets class
+2022-04-14 15:29:38,942-INFO-FILE:main.py-FUNC:main-LINE:38-scraping Tweets
+2022-04-14 15:29:45,533-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_tweets-LINE:223-the scraping of Tweets succeed
+2022-04-14 15:29:45,553-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:29:45,588-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:29:45,601-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:29:45,650-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:29:45,713-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:30:15,917-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:30:15,974-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:30:25,989-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:30:26,029-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:30:26,121-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:30:46,266-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:30:46,290-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:30:56,322-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:30:56,361-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:30:56,455-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:31:16,656-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:31:16,714-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:31:16,742-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:31:17,004-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:31:17,049-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:31:47,190-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:31:47,243-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:31:47,272-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:31:48,069-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:31:48,162-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:32:08,487-INFO-FILE:Tweets_Extractor.py-FUNC:_scroll_down_page-LINE:47-scroll_down_page for more Tweets
+2022-04-14 15:32:09,007-INFO-FILE:main.py-FUNC:main-LINE:40-build instance of the Users class
+2022-04-14 15:32:09,007-INFO-FILE:main.py-FUNC:main-LINE:42-scraping Tweets
+2022-04-14 15:32:09,877-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:34:40,854-INFO-FILE:main.py-FUNC:<module>-LINE:71-get parameters from the user
+2022-04-14 15:34:40,855-INFO-FILE:main.py-FUNC:main-LINE:34-initialize the driver for scraping
+2022-04-14 15:34:41,799-INFO-FILE:utils.py-FUNC:download_chromedriver-LINE:235-Chromedriver is already installed.
+2022-04-14 15:34:46,200-INFO-FILE:main.py-FUNC:main-LINE:36-build instance of the Tweets class
+2022-04-14 15:34:46,201-INFO-FILE:main.py-FUNC:main-LINE:38-scraping Tweets
+2022-04-14 15:34:47,257-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_tweets-LINE:223-the scraping of Tweets succeed
+2022-04-14 15:34:47,310-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:34:47,613-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:34:47,637-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:34:47,690-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:34:47,731-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:35:17,901-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:35:17,951-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:35:28,017-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:35:28,075-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:35:28,117-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:35:48,230-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:35:48,278-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:35:58,329-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:35:58,366-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:35:58,454-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:36:18,597-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:36:18,647-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:36:18,670-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:36:18,930-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:36:19,008-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:36:49,198-INFO-FILE:Tweets_Extractor.py-FUNC:_scroll_down_page-LINE:47-scroll_down_page for more Tweets
+2022-04-14 15:36:49,725-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_tweets-LINE:223-the scraping of Tweets succeed
+2022-04-14 15:36:49,745-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:36:49,796-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:36:49,813-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:36:49,883-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:36:49,969-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:37:20,213-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:37:20,265-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:37:30,325-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:37:30,359-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:37:30,436-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:37:50,590-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:37:50,642-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:38:00,673-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:38:00,709-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:38:00,794-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:38:20,902-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:38:20,954-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:38:20,980-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:38:21,236-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:38:21,300-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:38:51,445-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:38:51,496-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:38:51,521-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:38:52,194-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:38:52,272-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:39:12,425-INFO-FILE:Tweets_Extractor.py-FUNC:_scroll_down_page-LINE:47-scroll_down_page for more Tweets
+2022-04-14 15:39:12,934-INFO-FILE:main.py-FUNC:main-LINE:40-build instance of the Users class
+2022-04-14 15:39:12,934-INFO-FILE:main.py-FUNC:main-LINE:42-scraping Tweets
+2022-04-14 15:39:13,872-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:39:13,882-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:39:14,713-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:39:14,748-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:39:15,553-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:39:15,561-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:39:16,377-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:39:16,383-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:39:17,208-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:39:17,216-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:39:18,056-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:39:18,065-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:39:18,816-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:39:18,823-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:39:18,871-INFO-FILE:main.py-FUNC:main-LINE:47-create database and tables for first running
+2022-04-14 15:39:18,872-INFO-FILE:main.py-FUNC:main-LINE:51-update tables in the database with the new info get from scraping
+2022-04-14 15:47:29,031-INFO-FILE:main.py-FUNC:<module>-LINE:71-get parameters from the user
+2022-04-14 15:47:29,034-INFO-FILE:main.py-FUNC:main-LINE:34-initialize the driver for scraping
+2022-04-14 15:47:30,382-INFO-FILE:utils.py-FUNC:download_chromedriver-LINE:235-Chromedriver is already installed.
+2022-04-14 15:47:34,815-INFO-FILE:main.py-FUNC:main-LINE:36-build instance of the Tweets class
+2022-04-14 15:47:34,816-INFO-FILE:main.py-FUNC:main-LINE:38-scraping Tweets
+2022-04-14 15:47:35,834-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_tweets-LINE:223-the scraping of Tweets succeed
+2022-04-14 15:47:35,946-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:47:36,267-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:47:36,294-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:47:36,364-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:47:36,421-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:48:12,264-INFO-FILE:main.py-FUNC:<module>-LINE:71-get parameters from the user
+2022-04-14 15:48:12,265-INFO-FILE:main.py-FUNC:main-LINE:34-initialize the driver for scraping
+2022-04-14 15:48:13,174-INFO-FILE:utils.py-FUNC:download_chromedriver-LINE:235-Chromedriver is already installed.
+2022-04-14 15:48:17,728-INFO-FILE:main.py-FUNC:main-LINE:36-build instance of the Tweets class
+2022-04-14 15:48:17,729-INFO-FILE:main.py-FUNC:main-LINE:38-scraping Tweets
+2022-04-14 15:48:18,929-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_tweets-LINE:223-the scraping of Tweets succeed
+2022-04-14 15:48:18,967-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:48:19,349-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:48:19,380-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:48:19,458-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:48:19,514-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:48:49,662-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:48:49,711-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:48:59,746-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:48:59,805-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:48:59,870-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:49:19,956-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:49:19,981-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:49:30,036-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:49:30,070-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:49:30,156-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:49:50,310-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:49:50,360-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:50:00,382-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:50:00,416-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:50:00,505-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:50:40,840-INFO-FILE:Tweets_Extractor.py-FUNC:_scroll_down_page-LINE:47-scroll_down_page for more Tweets
+2022-04-14 15:50:41,363-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_tweets-LINE:223-the scraping of Tweets succeed
+2022-04-14 15:50:41,377-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:50:41,443-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:50:51,479-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:50:51,514-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:50:51,601-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:51:21,779-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:51:21,823-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:51:21,836-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:51:21,961-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:51:22,005-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:51:52,184-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:51:52,245-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:52:02,274-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:52:02,308-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:52:02,394-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:52:42,602-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:52:42,654-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:52:42,670-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:52:42,735-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:52:42,804-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:52:52,929-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:52:52,976-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:52:52,989-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:52:53,170-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:52:53,222-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:53:13,389-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:53:13,447-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:53:13,473-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:53:13,598-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:53:13,636-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:53:43,780-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:53:43,831-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:53:43,855-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:53:44,050-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:53:44,125-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:54:14,297-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:54:14,346-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:54:14,360-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:54:14,495-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:54:14,580-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:54:44,887-INFO-FILE:Tweets_Extractor.py-FUNC:_scroll_down_page-LINE:47-scroll_down_page for more Tweets
+2022-04-14 15:54:45,400-INFO-FILE:main.py-FUNC:main-LINE:40-build instance of the Users class
+2022-04-14 15:54:45,400-INFO-FILE:main.py-FUNC:main-LINE:42-scraping Tweets
+2022-04-14 15:54:46,492-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:54:46,509-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:54:47,843-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:54:47,870-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:54:49,119-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:54:49,135-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:54:50,118-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:54:50,127-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:54:51,110-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:54:51,120-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:54:52,043-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:54:52,051-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:54:52,857-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:54:52,865-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:54:53,894-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:54:53,909-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:54:54,963-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:54:55,040-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:54:56,015-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:54:56,022-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:54:56,978-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:54:57,002-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:54:58,063-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:54:58,084-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:54:59,087-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:54:59,098-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:55:00,172-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:55:00,181-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:55:01,366-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:55:01,378-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:55:02,419-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:55:02,429-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:55:03,506-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:55:03,515-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:55:04,628-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 15:55:04,638-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 15:55:04,758-INFO-FILE:main.py-FUNC:main-LINE:47-create database and tables for first running
+2022-04-14 15:55:04,761-INFO-FILE:main.py-FUNC:main-LINE:51-update tables in the database with the new info get from scraping
+2022-04-14 15:56:27,225-INFO-FILE:main.py-FUNC:<module>-LINE:71-get parameters from the user
+2022-04-14 15:56:27,226-INFO-FILE:main.py-FUNC:main-LINE:34-initialize the driver for scraping
+2022-04-14 15:56:28,942-INFO-FILE:utils.py-FUNC:download_chromedriver-LINE:235-Chromedriver is already installed.
+2022-04-14 15:56:33,639-INFO-FILE:main.py-FUNC:main-LINE:36-build instance of the Tweets class
+2022-04-14 15:56:33,639-INFO-FILE:main.py-FUNC:main-LINE:38-scraping Tweets
+2022-04-14 15:56:34,731-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_tweets-LINE:223-the scraping of Tweets succeed
+2022-04-14 15:56:34,901-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:56:35,166-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:56:35,182-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:56:35,315-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:56:35,398-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:57:05,588-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:57:05,651-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:57:15,689-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:57:15,747-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:57:15,840-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:57:35,947-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:57:36,012-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:57:46,041-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:57:46,077-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:57:46,162-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:58:06,309-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:58:06,358-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:58:16,403-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:58:16,441-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:58:16,562-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:58:56,929-INFO-FILE:Tweets_Extractor.py-FUNC:_scroll_down_page-LINE:47-scroll_down_page for more Tweets
+2022-04-14 15:58:57,474-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_tweets-LINE:223-the scraping of Tweets succeed
+2022-04-14 15:58:57,505-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:58:57,574-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:58:57,598-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 15:58:57,681-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:58:57,758-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 15:59:18,379-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 15:59:18,437-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 15:59:28,485-ERROR-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:114-the scraping of time of the hashtags_users_tagged_links failed
+2022-04-14 15:59:28,525-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 15:59:28,604-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 16:00:08,817-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 16:00:08,868-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 16:00:08,884-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 16:00:09,101-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 16:00:09,177-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 16:00:29,393-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 16:00:29,441-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 16:00:29,452-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 16:00:29,635-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 16:00:29,725-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 16:00:39,834-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 16:00:39,882-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 16:00:39,904-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 16:00:40,033-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 16:00:40,110-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 16:01:10,267-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 16:01:10,317-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 16:01:10,343-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 16:01:10,549-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 16:01:10,604-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 16:01:40,786-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_name-LINE:85-the scraping of time of the publisher_name succeed
+2022-04-14 16:01:40,836-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_publisher_link-LINE:99-the scraping of time of the publisher_link succeed
+2022-04-14 16:01:40,848-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_hashtags_users_tagged_links-LINE:116-the scraping of time of the hashtags_users_tagged_links succeed
+2022-04-14 16:01:40,968-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_num_replies_retweets_likes-LINE:146-the scraping of time of the num_replies_retweets_likes succeed
+2022-04-14 16:01:41,052-INFO-FILE:Tweets_Extractor.py-FUNC:_extract_dates-LINE:160-the scraping of time of the tweet succeed
+2022-04-14 16:02:11,359-INFO-FILE:Tweets_Extractor.py-FUNC:_scroll_down_page-LINE:47-scroll_down_page for more Tweets
+2022-04-14 16:02:11,868-INFO-FILE:main.py-FUNC:main-LINE:40-build instance of the Users class
+2022-04-14 16:02:11,868-INFO-FILE:main.py-FUNC:main-LINE:42-scraping Tweets
+2022-04-14 16:02:12,851-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:12,876-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:14,100-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:14,110-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:15,231-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:15,246-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:16,300-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:16,314-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:17,214-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:17,231-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:18,262-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:18,275-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:19,211-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:19,221-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:20,118-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:20,132-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:21,093-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:21,104-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:22,298-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:22,310-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:23,241-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:23,252-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:24,172-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:24,180-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:25,103-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:25,112-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:25,972-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:25,977-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:26,786-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:26,791-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:27,723-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:27,728-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:28,646-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:24-the scraping of time of the user_info succeed
+2022-04-14 16:02:28,651-INFO-FILE:User_Extractor.py-FUNC:user_extract-LINE:31-the scraping of time of the user_tag succeed
+2022-04-14 16:02:28,702-INFO-FILE:main.py-FUNC:main-LINE:47-create database and tables for first running
+2022-04-14 16:02:28,774-INFO-FILE:main.py-FUNC:main-LINE:51-update tables in the database with the new info get from scraping

@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import chromedriver_autoinstaller
-from config import *
+from Config import *
 
 
 def create_webdriver_instance():

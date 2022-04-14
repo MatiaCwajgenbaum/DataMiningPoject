@@ -1,6 +1,8 @@
 from selenium.webdriver.common.by import By
 from time import sleep
 import csv
+from Config import *
+import logging
 
 
 class Tweets_extractor:
@@ -32,7 +34,8 @@ class Tweets_extractor:
 
         self.records = []
 
-    def _scroll_down_page(self, driver, last_position, num_seconds_to_load=0.5, scroll_attempt=0, max_attempts=5):
+    @staticmethod
+    def _scroll_down_page(driver, last_position, num_seconds_to_load=NUM_SECONDS_TO_LOAD):
         """
         The function will try to scroll down the page and will check the current
         and last positions as an indicator. If the current and last positions are the same after `max_attempts`
@@ -41,13 +44,11 @@ class Tweets_extractor:
         """
         end_of_scroll_region = False
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        logging.info(f"scroll_down_page for more Tweets")
         sleep(num_seconds_to_load)
         curr_position = driver.execute_script("return window.pageYOffset;")
         if curr_position == last_position:
-            if scroll_attempt >= max_attempts:
-                end_of_scroll_region = True
-            else:
-                self._scroll_down_page(last_position, curr_position, scroll_attempt + 1)
+            end_of_scroll_region = True
         last_position = curr_position
         return last_position, end_of_scroll_region
 
@@ -55,9 +56,10 @@ class Tweets_extractor:
         """
         create csv file with all the records
         """
-        header = ['NAMES OF PUBLISHERS', 'LINK OF PUBLISHERS', 'HASHTAGS_USERS TAGGED_LINKS',
-                  'ReplyCount_RetweetCount_LikeCount',
-                  'DATES', 'NUMBER OF IMAGES', 'NUMBER OF VIDEOS', 'NUMBER OF EMOJIS', 'REPLY']
+        header = ['NAMES OF PUBLISHERS', 'USERNAMES OF PUBLISHERS', 'LINK OF PUBLISHERS', 'HASHTAGS_USERS TAGGED_LINKS',
+                  'ReplyCount_RetweetCount_LikeCount', 'DATES', 'NUMBER OF IMAGES', 'NUMBER OF VIDEOS', 'NUMBER OF '
+                                                                                                        'EMOJIS',
+                  'REPLY']
         with open(self.path_csv_file, mode=mode, newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerow(header)
@@ -77,6 +79,10 @@ class Tweets_extractor:
         """
         publisher = driver.find_elements(By.CLASS_NAME,
                                          "css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0".replace(' ', '.'))
+        if len(publisher) == 0:
+            logging.error(f"the scraping of time of the publisher_name failed")
+        else:
+            logging.info(f"the scraping of time of the publisher_name succeed")
         return publisher[0].text
 
     def _extract_publisher_link(self, driver):
@@ -87,6 +93,10 @@ class Tweets_extractor:
                                               "css-4rbku5 css-18t94o4 css-1dbjc4n r-1loqt21 r-1wbh5a2 r-dnmrzs "
                                               "r-1ny4l3l".replace(' ', '.'))
         self.list_of_publishers_links.add(publisher_link[0].get_attribute('href'))
+        if len(publisher_link) == 0:
+            logging.error(f"the scraping of time of the publisher_link failed")
+        else:
+            logging.info(f"the scraping of time of the publisher_link succeed")
         return publisher_link[0].get_attribute('href')
 
     def _extract_hashtags_users_tagged_links(self, driver):
@@ -100,6 +110,10 @@ class Tweets_extractor:
         list_hashtags = []
         list_users_tagged = []
         list_links = []
+        if len(hashtag_list) == 0:
+            logging.error(f"the scraping of time of the hashtags_users_tagged_links failed")
+        else:
+            logging.info(f"the scraping of time of the hashtags_users_tagged_links succeed")
         for element in hashtag_list:
             if '#' in element.text[0]:
                 list_hashtags.append(element.text)
@@ -126,6 +140,10 @@ class Tweets_extractor:
         numbers_list = number_info[0].find_elements(By.CLASS_NAME,
                                                     "css-901oao css-16my406 r-poiln3 r-n6v787 r-1cwl3u0 r-1k6nrdp "
                                                     "r-1e081e0 r-qvutc0".replace(' ', '.'))
+        if len(numbers_list) == 0:
+            logging.error(f"the scraping of time of the num_replies_retweets_likes failed")
+        else:
+            logging.info(f"the scraping of time of the num_replies_retweets_likes succeed")
         return [numbers_list[0].text, numbers_list[1].text, numbers_list[2].text]
 
         #      DATES
@@ -136,9 +154,17 @@ class Tweets_extractor:
         Returns a list of the exact dates the tweets extracted where posted at.
         """
         times = driver.find_elements(By.TAG_NAME, 'time')
-        time = times[0].get_attribute('datetime')
-        time = time.replace('T', ' ')
-        return time.replace('Z', '')
+        if len(times) == 0:
+            logging.error(f"the scraping of time of the tweet failed")
+        else:
+            logging.info(f"the scraping of time of the tweet succeed")
+        try:
+            time = times[0].get_attribute('datetime')
+            time = time.replace('T', ' ')
+            time = time.replace('Z', '')
+        except IndexError:
+            time = ""
+        return time
 
     @staticmethod
     def _extract_num_images(driver):
@@ -191,6 +217,10 @@ class Tweets_extractor:
         """
         list_tweets = driver.find_elements(By.CLASS_NAME,
                                            "css-1dbjc4n r-1iusvr4 r-16y2uox r-1777fci r-kzbkwu".replace(' ', '.'))
+        if len(list_tweets) == 0:
+            logging.error(f"the scraping of Tweets failed")
+        else:
+            logging.info(f"the scraping of Tweets succeed")
         self.quantity_of_scrapers_tweets = self.quantity_of_scrapers_tweets + len(list_tweets)
         for tweet in list_tweets:
             row = [self._extract_publisher_name(tweet), self._extract_publisher_link(tweet),

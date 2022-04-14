@@ -116,7 +116,7 @@ def create_table_users(length_varchar):
 
 
 def create_table_users_tagged_tweets():
-    """ create table to connect between the Users' table to the Tweets table for users that tagged in the tweet"""
+    """ create table to connect between the Users' table to the Tweets' table for users that tagged in the tweet"""
     sql = f"""CREATE TABLE users_tagged_tweets(
               users_tagged_tweet_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
               users_tagged_id INT NOT NULL,
