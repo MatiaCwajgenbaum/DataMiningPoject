@@ -1,10 +1,9 @@
 import pymysql
+from Config import *
+import re
+from datetime import datetime
 
-### User has to type here his own id and password for mysql
-USER = "user????"
-PASSWORD = "password????"
-
-connection = pymysql.connect(host="localhost",
+connection = pymysql.connect(host=HOST,
                              user=USER,
                              password=PASSWORD,
                              cursorclass=pymysql.cursors.DictCursor)
@@ -15,79 +14,100 @@ def execute_sql(sql):
     """execute the sql query"""
     cursor.execute(sql)
     result = cursor.fetchall()
-    print(result)
     return result
 
 
-def create_DATABASE():
+def create_database():
     sql = "CREATE DATABASE Tweets"
     try:
         execute_sql(sql)
     except pymysql.err.ProgrammingError as err:
         print(err)
-    # sql = "SHOW databases"
-    # execute_sql(sql)
 
 
-def use_DATABASE():
+def use_database():
     sql = "USE Tweets"
     execute_sql(sql)
 
 
-def get_number_of_rows(table):
-    sql = f'select count(*) from {table}'
-    result = execute_sql(sql)
-    return result[0]['count(*)']
+# create tables
 
-
-def create_table_tweets():
+def create_table_tweets(length_varchar):
     sql = f"""CREATE TABLE Tweets(
-             tweet_id INT PRIMARY KEY,
-             NAME_OF_PUBLISHER VARCHAR(30),
-             ReplyCount VARCHAR(10),
-             RetweetCount VARCHAR(10),
-             LikeCount VARCHAR(10),
-             DATES VARCHAR(30),
-             NUMBER_OF_IMAGES INT,
-             search_term VARCHAR(30)
+              tweet_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+              name_of_publisher VARCHAR({length_varchar}) NOT NULL,
+              reply_count INT NOT NULL,
+              retweet_count INT NOT NULL,
+              like_count INT NOT NULL,
+              dates DATETIME NOT NULL,
+              number_of_images INT NOT NULL,
+              number_of_videos INT NOT NULL,
+              number_of_emojis INT NOT NULL,          
+              reply BOOL NOT NULL,
+              search_term VARCHAR({length_varchar}) NOT NULL
     )"""
     try:
         execute_sql(sql)
     except pymysql.err.OperationalError as err:
         print(err)
-    # sql = "SHOW TABLES"
-    # execute_sql(sql)
 
 
-def update_table_tweets(records, search_term, number_of_rows):
-    index = 0
-    for row in records:
-        sql = f'select count(*) from Tweets where DATES = "{row[7]}" AND NAME_OF_PUBLISHER= {row[0]}'
-        result = execute_sql(sql)
-        if result[0]['count(*)'] != 0:
-            continue
-        ezer_row4 = row[4]
-        if ezer_row4 == '':
-            ezer_row4 = 0
-        ezer_row5 = row[5]
-        if ezer_row5 == '':
-            ezer_row5 = 0
-        ezer_row6 = row[6]
-        if ezer_row6 == '':
-            ezer_row6 = 0
-        sql = "INSERT INTO Tweets VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
-        cursor.execute(sql,
-                       ((number_of_rows + index), row[0], ezer_row4, ezer_row5, ezer_row6, row[7], row[8], search_term))
-        index = index + 1
-    connection.commit()
+def create_table_hashtag(length_varchar):
+    sql = f"""CREATE TABLE Hashtag(
+              hashtag_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+              hashtag_name VARCHAR({length_varchar}) NOT NULL 
+    )"""
+    try:
+        execute_sql(sql)
+    except pymysql.err.OperationalError as err:
+        print(err)
 
 
-def create_table_users():
+def create_table_hashtag_tweets():
+    """ create table to connect between the Hashtag' table to the Tweets table"""
+    sql = f"""CREATE TABLE Hashtag_tweets(
+              hashtag_tweet_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+              hashtag_id INT NOT NULL,
+              tweet_id INT NOT NULL 
+    )"""
+    try:
+        execute_sql(sql)
+    except pymysql.err.OperationalError as err:
+        print(err)
+
+
+def create_table_link(length_varchar):
+    sql = f"""CREATE TABLE Links(
+              link_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+              link VARCHAR({length_varchar}) NOT NULL
+    )"""
+    try:
+        execute_sql(sql)
+    except pymysql.err.OperationalError as err:
+        print(err)
+
+
+def create_table_link_tweets():
+    """ create table to connect between the Links' table to the Tweets table"""
+    sql = f"""CREATE TABLE Links_tweets(
+              link_tweet_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+              link_id INT NOT NULL,
+              tweet_id INT NOT NULL 
+    )"""
+    try:
+        execute_sql(sql)
+    except pymysql.err.OperationalError as err:
+        print(err)
+
+
+def create_table_users(length_varchar):
+    """ create table of users that include users that publish a tweet and users that tagged in tweet"""
     sql = f"""CREATE TABLE Users(
-             user_id INT PRIMARY KEY,
-             NAME_OF_PUBLISHER VARCHAR(30),
-             Number_of_Following VARCHAR(10),
-             Number_of_Followers VARCHAR(10)
+              user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+              name_of_publisher VARCHAR({length_varchar}) UNIQUE,
+              tag_of_publisher VARCHAR({length_varchar}) UNIQUE,
+              number_of_following INT NOT NULL,
+              number_of_followers INT NOT NULL
     )"""
     try:
         execute_sql(sql)
@@ -95,43 +115,117 @@ def create_table_users():
         print(err)
 
 
-def update_table_users(records, number_of_rows):
-    index = 0
+def create_table_users_tagged_tweets():
+    """ create table to connect between the Users' table to the Tweets table for users that tagged in the tweet"""
+    sql = f"""CREATE TABLE users_tagged_tweets(
+              users_tagged_tweet_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+              users_tagged_id INT NOT NULL,
+              tweet_id INT NOT NULL 
+    )"""
+    try:
+        execute_sql(sql)
+    except pymysql.err.OperationalError as err:
+        print(err)
+
+
+# helper functions for update
+
+def convert_string_to_number(value):
+    """ some features that represent numbers include symbols and letters, this method converts them to numbers"""
+    if value == '':
+        return 0
+    new_value = float(re.sub("[A-Za-z,]", "", value))
+    if 'K' in value:
+        new_value = new_value * 1000
+    if 'M' in value:
+        new_value = new_value * 1e6
+    return int(new_value)
+
+
+def get_current_hashtags():
+    sql = 'select * from Hashtag'
+    result = execute_sql(sql)
+    if len(result) == 0:
+        return ''
+    return result[0]['hashtag_name']
+
+
+def get_current_links():
+    sql = 'select * from Links'
+    result = execute_sql(sql)
+    if len(result) == 0:
+        return ''
+    return result[0]['link']
+
+
+# update tables
+
+def update_table_hashtag_tweets(records, hashtags, tweet_id):
+    for row in set(records):
+        if row.lower() not in list(map(lambda x: x.lower(), hashtags)):  # add only new hashtags to Hashtags table
+            sql = 'insert into Hashtag (hashtag_id, hashtag_name) values(%s, %s)'
+            cursor.execute(sql, (None, row))
+        sql = 'insert into Hashtag_tweets (hashtag_tweet_id, hashtag_id, tweet_id) values(%s, (select hashtag_id ' \
+              'from Hashtag where hashtag_name=%s), %s)'
+        cursor.execute(sql, (None, row, tweet_id))
+
+
+def update_table_links_tweets(records, links, tweet_id):
+    for row in set(records):
+        if row.lower() not in list(map(lambda x: x.lower(), links)):  # add only new links to Links table
+            sql = 'insert into Links (link_id, link) values(%s, %s)'
+            cursor.execute(sql, (None, row))
+        sql = 'insert into Links_tweets (link_tweet_id, link_id, tweet_id) values(%s, (select link_id ' \
+              'from Links where link=%s), %s)'
+        cursor.execute(sql, (None, row, tweet_id))
+
+
+def update_table_users(records):
     for row in records:
-        sql = f'select count(*) from Users where NAME_OF_PUBLISHER = "{row[0]}"'
-        result = execute_sql(sql)
-        if result[0]['count(*)'] != 0:
-            continue
-        sql = "INSERT INTO Users VALUES (%s, %s, %s, %s)"
+        row[2] = convert_string_to_number(row[2])
+        row[3] = convert_string_to_number(row[3])
+        # Add new users or update information on users that already exist
+        sql = 'insert into Users (user_id, name_of_publisher,tag_of_publisher, number_of_following,' \
+              'number_of_followers) values(%s, %s, %s,%s, %s) on duplicate key update number_of_following=values(' \
+              'number_of_following), number_of_followers=values(number_of_followers) '
         cursor.execute(sql,
-                       (number_of_rows + index, row[0], row[1], row[2]))
-        index = index + 1
+                       (None, row[0], row[1], row[2], row[3]))
     connection.commit()
 
-# def create_table_hashtag():
-#     sql = f"""CREATE TABLE Hashtag(
-#              id INT PRIMARY KEY,
-#              tweet_id INT
-#     )"""
-#     try:
-#         execute_sql(sql)
-#     except pymysql.err.OperationalError as err:
-#         print(err)
 
-# def create_table_hashtag():
-#     sql = f"""CREATE TABLE hashtag(
-#              id INT PRIMARY KEY,
-#              NAME VARCHAR(30)
-#     )"""
-#     try:
-#         execute_sql(sql)
-#     except pymysql.err.OperationalError as err:
-#         print(err)
-#
-#
-# def update_table_hashtag(records, number_of_rows):
-#     for index, row in enumerate(records):
-#         sql = "INSERT INTO Tweets VALUES (%s, %s)"
-#         cursor.execute(sql,
-#                        (number_of_rows + index, row[0]))
-#     connection.commit()
+def update_table_users_tagged_tweets(records, tweet_id):
+    for row in set(records):
+        sql = 'insert into users_tagged_tweets (users_tagged_tweet_id, users_tagged_id, tweet_id) values(%s, ' \
+              '(select user_id from Users where tag_of_publisher=%s), %s)'
+        cursor.execute(sql, (None, row, tweet_id))
+
+
+def update_table_tweets(records, search_term):
+    """ update all the tables according the new records, except the Users' table that update separately"""
+    current_hashtags = {get_current_hashtags()}
+    current_links = {get_current_links()}
+    for row in records:
+        # change the ReplyCount, RetweetCount, LikeCount to integers from string
+        row[3] = list(map(lambda x: convert_string_to_number(x), row[3]))
+        # change DATES to date format
+        row[4] = datetime.strptime(row[4], '%Y-%m-%d %H:%M:%S.%f')
+        # check if the tweet exist
+        condition = f'dates = "{row[4]}" AND name_of_publisher= "{row[0]}"'
+        sql = f'select count(*) from Tweets where {condition}'
+        result = execute_sql(sql)
+        if result[0]['count(*)'] != 0:  # update tweet information
+            sql = f'UPDATE Tweets SET reply_count=%s, retweet_count=%s, like_count=%s where {condition}'
+            cursor.execute(sql, (row[3][0], row[3][1], row[3][2]))
+        else:  # insert new tweet
+            sql = 'insert into Tweets values(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+            cursor.execute(sql,
+                           (None, row[0], row[3][0], row[3][1], row[3][2], row[4], row[5], row[6], row[7], row[8],
+                            search_term))
+        sql = 'SELECT COUNT(*) FROM Tweets'
+        tweet_id = execute_sql(sql)[0]['COUNT(*)']
+        update_table_hashtag_tweets(row[2][0], current_hashtags, tweet_id)
+        current_hashtags = current_hashtags.union(set(row[2][0]))  # update the hashtags set
+        update_table_users_tagged_tweets(row[2][1], tweet_id)
+        update_table_links_tweets(row[2][2], current_links, tweet_id)
+        current_links = current_links.union(set(row[2][2]))  # update the links set
+    connection.commit()
