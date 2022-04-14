@@ -12,7 +12,7 @@ class Tweets_extractor:
     and store in a table as many tweets as one wants, from the result's page of a specific term research on Twitter
     """
 
-    def __init__(self, search_term, quantity_of_tweets, path_CSVfile):
+    def __init__(self, search_term, quantity_of_tweets, path_csvfile):
         """
         Our class has 1 attribute the user need to enter: 1) the terms he wants to type in the search bar.
         and two optional attributes:
@@ -25,7 +25,7 @@ class Tweets_extractor:
          !!! However, these last attributes are empty until the user fill them with the corresponding methods !
         """
         self.search_term = search_term
-        self.path_CSVfile = path_CSVfile
+        self.path_csv_file = path_csvfile
         self.quantity_of_tweets = quantity_of_tweets
 
         self.list_of_publishers = []
@@ -96,13 +96,13 @@ class Tweets_extractor:
 
         return driver
 
-    def Return_attribute(self, attribute):
+    def return_attribute(self, attribute):
         """
         return attribute
         """
         return getattr(self, attribute)
 
-    def _Extract_Names_and_links(self, driver):
+    def _extract_names_and_links(self, driver):
         """
         Returns a list of the names of the different tweet publishers
         """
@@ -116,37 +116,39 @@ class Tweets_extractor:
             else:
                 self.list_of_publishers.append(Publishers[i].text)
 
-    def _Extract_hashtags_userstagged_links(self, driver):
+    def _extract_hashtags_users_tagged_links(self, driver):
         """"
         Returns 3 lists containing for each tweet the different hashtags (self.list_hashtags),
          the users tagged (self.list_users_tagged),  and the links (self.list_links)
         """
         text_info = driver.find_elements(By.CLASS_NAME,
-                                         "css-901oao r-18jsvk2 r-37j5jr r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-bnwqim r-qvutc0".replace(
+                                         "css-901oao r-18jsvk2 r-37j5jr r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-bnwqim "
+                                         "r-qvutc0".replace(
                                              ' ', '.'))
         for i in range(len(text_info)):
             hashtag_list = text_info[i].find_elements(By.CLASS_NAME,
-                                                      "css-4rbku5 css-18t94o4 css-901oao css-16my406 r-1cvl2hr r-1loqt21 r-poiln3 r-bcqeeo r-qvutc0".replace(
+                                                      "css-4rbku5 css-18t94o4 css-901oao css-16my406 r-1cvl2hr "
+                                                      "r-1loqt21 r-poiln3 r-bcqeeo r-qvutc0".replace(
                                                           ' ', '.'))
-            list_ezer_hashtag = []
-            list_ezer_pages = []
-            list_ezer_links = []
+            list_help_hashtag = []
+            list_help_pages = []
+            list_help_links = []
             for element in hashtag_list:
                 if '#' in element.text:
-                    list_ezer_hashtag.append(element.text)
+                    list_help_hashtag.append(element.text)
                     continue
                 if '@' in element.text:
-                    list_ezer_pages.append(element.text)
+                    list_help_pages.append(element.text)
                     self.list_pages_links.add(element.get_attribute('href'))
                     continue
-                list_ezer_links.append(element.text)
-            self.list_hashtags.append(list_ezer_hashtag)
-            self.list_users_tagged.append(list_ezer_pages)
-            self.list_links.append(list_ezer_links)
+                list_help_links.append(element.text)
+            self.list_hashtags.append(list_help_hashtag)
+            self.list_users_tagged.append(list_help_pages)
+            self.list_links.append(list_help_links)
 
-            ####         NUMBERS OF REPLIES, RETWEETS AND LIKES
+            #         NUMBERS OF REPLIES, RETWEETS AND LIKES
 
-    def _Extract_NumReplies_retweets_likes(self, driver):
+    def _extract_num_replies_retweets_likes(self, driver):
         """"
         Returns a list containing 3 numbers per tweet: Num of replies, retweets and likes
         """
@@ -156,37 +158,39 @@ class Tweets_extractor:
 
         for i in range(len(number_info)):
             numbers_list = number_info[i].find_elements(By.CLASS_NAME,
-                                                        "css-901oao css-16my406 r-poiln3 r-n6v787 r-1cwl3u0 r-1k6nrdp r-1e081e0 r-qvutc0".replace(
+                                                        "css-901oao css-16my406 r-poiln3 r-n6v787 r-1cwl3u0 r-1k6nrdp "
+                                                        "r-1e081e0 r-qvutc0".replace(
                                                             ' ', '.'))
             self.list_number_reply.append(numbers_list[0].text)
             self.list_number_retweet.append(numbers_list[1].text)
             self.list_number_Like.append(numbers_list[2].text)
 
-        ####      DATES
+        #      DATES
 
-    def _Extract_Dates(self, driver):
+    def _extract_dates(self, driver):
         """
         Returns a list of the exact dates the tweets extracted where posted at.
         """
-        TIMES = driver.find_elements(By.TAG_NAME, 'time')
-        for item in TIMES:
+        times = driver.find_elements(By.TAG_NAME, 'time')
+        for item in times:
             time = item.get_attribute('datetime')
             time = time.replace('T', ' ')
             self.list_times.append(time.replace('Z', ' '))
 
-    def _Extract_Num_images(self, driver):
+    def _extract_num_images(self, driver):
         """
         Returns a list giving the number of images present in every tweet.
         """
         list_tweet = driver.find_elements(By.CLASS_NAME,
-                                          "css-1dbjc4n r-1ets6dv r-1867qdf r-1phboty r-rs99b7 r-1ny4l3l r-1udh08x r-o7ynqc r-6416eg".replace(
+                                          "css-1dbjc4n r-1ets6dv r-1867qdf r-1phboty r-rs99b7 r-1ny4l3l r-1udh08x "
+                                          "r-o7ynqc r-6416eg".replace(
                                               ' ', '.'))
 
         for i in list_tweet:
             images_for_tweet = i.find_elements(By.TAG_NAME, "img")
             self.list_images.append(len(images_for_tweet))
 
-    def Extract_ALL(self, driver):
+    def extract_all(self, driver):
 
         """
         Creates and Stores a csv file which contains all the features extracted from the webpage, the file is located in
@@ -196,13 +200,12 @@ class Tweets_extractor:
         last_position = None
         end_of_scroll_region = False
         while not end_of_scroll_region:
-            self._Extract_Names_and_links(driver)
-            self._Extract_hashtags_userstagged_links(driver)
-            self._Extract_NumReplies_retweets_likes(driver)
-            self._Extract_Dates(driver)
-            self._Extract_Num_images(driver)
+            self._extract_names_and_links(driver)
+            self._extract_hashtags_users_tagged_links(driver)
+            self._extract_num_replies_retweets_likes(driver)
+            self._extract_dates(driver)
+            self._extract_num_images(driver)
             last_position, end_of_scroll_region = self._scroll_down_page(driver, last_position)
-            break
             if int(self.quantity_of_tweets) < len(self.list_of_publishers):
                 break
         records = zip(self.list_of_publishers[:int(self.quantity_of_tweets)],
@@ -215,7 +218,5 @@ class Tweets_extractor:
                       self.list_times[:int(self.quantity_of_tweets)],
                       self.list_images[:int(self.quantity_of_tweets)])
 
-        # self._save_tweet_data_to_csv(records, self.path_CSVfile)
+        # self._save_tweet_data_to_csv(records, self.path_csvfile)
         return records
-
-
