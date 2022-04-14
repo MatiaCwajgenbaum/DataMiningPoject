@@ -1,6 +1,6 @@
 from Driver import *
 from Tweets_Extractor import *
-# from API import *
+from API import *
 from User_Extractor import *
 from build_database import *
 
@@ -42,25 +42,27 @@ def main(search_term, first_run, quantity_of_tweets, path_csv_file):
         logging.info("scraping Tweets")
         records_users = users.user_extract(driver)
 
-        # create database and tables if this the first running
+        #create database and tables if this the first running
         if first_run:
             logging.info("create database and tables for first running")
             create_database_and_tables()
-
+        use_database()
         # update tables
         logging.info("update tables in the database with the new info get from scraping")
         update_table_users(records_users)
         update_table_tweets(records_tweets, search_term)
         driver.quit()
 
-        # API
-        # logging.info("get extra information on user using Twitter API")
+        #API
+        logging.info("get extra information on user using Twitter API")
         # add columns to User table if this the first running
-        # if first_run:
-        #     add_columns(cursor)
-        # record_api = get_list_usernames_from_table(cursor)
-        # logging.info("update User' table with new info get from Twitter API")
-        # fill_new_columns(record_api, cursor)
+        try:
+            add_columns(cursor)
+        except pymysql.err.OperationalError as err:
+            print('columns already created')
+        record_api = get_list_usernames_from_table(cursor)
+        logging.info("update User' table with new info get from Twitter API")
+        fill_new_columns(record_api, cursor)
     except PermissionError as Pa:
         logging.error("the user insert wrong type of parameters")
         print(f'{Pa}, Make sure the path you typed really exists or that you have permission to access it! !')

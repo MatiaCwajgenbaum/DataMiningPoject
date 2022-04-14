@@ -14,7 +14,7 @@ def create_url(list_of_usernames):
     """
     usernames = "usernames="
     for user in list_of_usernames:
-        usernames += user
+        usernames += user[1:]
         if user != list_of_usernames[-1]:
             usernames += ","
     user_fields = "user.fields=description,created_at,public_metrics,verified"
@@ -62,15 +62,18 @@ def users_updater(list_of_usernames):
 
 
 def add_columns(cursors):
-    query_update = "ALTER TABLE Users ADD created_at DATE, ADD description VARCHAR(200), ADD listed_count INT, " \
-                   "ADD tweet_count INT, ADD verified BOOL"
-    cursors.execute(query_update)
+    try:
+        query_update = "ALTER TABLE Users ADD created_at DATE, ADD description VARCHAR(200), ADD listed_count INT, " \
+                       "ADD tweet_count INT, ADD verified BOOL"
+        cursors.execute(query_update)
+    except pymysql.err.OperationalError as err:
+        print(err)
 
 
 def fill_new_columns(record, cursors):
     for row in users_updater(record):
         sql = "UPDATE users SET created_at=%s, description=%s, listed_count=%s, tweet_count=%s, verified=%s where " \
-              "NAME_OF_PUBLISHER=%s"
+              "TAG_OF_PUBLISHER=%s"
         cursors.execute(sql,
                         (row[1][:-4], row[2], row[5], row[6], row[8], row[0]))
         print((row[1], row[2], row[5], row[6], row[8], row[0]))
@@ -78,9 +81,11 @@ def fill_new_columns(record, cursors):
 
 
 def get_list_usernames_from_table(cursors):
-    query = "SELECT name_of_publisher from Users"
-    result = cursors.execute(query)
+    query = "SELECT tag_of_publisher from Users"
+    # result = cursors.execute(query)
+    cursor.execute(query)
+    result = cursor.fetchall()
     output_list = []
     for name_dict in result:
-        output_list.append(name_dict['name_of_publisher'])
+        output_list.append(name_dict['tag_of_publisher'])
     return output_list

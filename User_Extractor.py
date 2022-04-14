@@ -30,10 +30,9 @@ class User_extractor:
                 else:
                     logging.info(f"the scraping of time of the user_tag succeed")
                 row = [user_info[0].text, user_tag[0].text, user_info[1].text, user_info[2].text]
+                self.records.append(row)
             except IndexError:
                 logging.error(f"the scraping of {user_link} is not accessible")
                 print(f"This link, {user_link} is not accessible")
-
-            self.records.append(row)
 
         return self.records

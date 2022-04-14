@@ -145,17 +145,18 @@ def convert_string_to_number(value):
 def get_current_hashtags():
     sql = 'select * from Hashtag'
     result = execute_sql(sql)
-    if len(result) == 0:
-        return ''
-    return result[0]['hashtag_name']
-
+    output_list = []
+    for name_dict in result:
+        output_list.append(name_dict['hashtag_name'])
+    return output_list
 
 def get_current_links():
     sql = 'select * from Links'
     result = execute_sql(sql)
-    if len(result) == 0:
-        return ''
-    return result[0]['link']
+    output_list = []
+    for name_dict in result:
+        output_list.append(name_dict['link'])
+    return output_list
 
 
 # update tables
@@ -202,8 +203,8 @@ def update_table_users_tagged_tweets(records, tweet_id):
 
 def update_table_tweets(records, search_term):
     """ update all the tables according the new records, except the Users' table that update separately"""
-    current_hashtags = {get_current_hashtags()}
-    current_links = {get_current_links()}
+    current_hashtags = set(get_current_hashtags())
+    current_links = set(get_current_links())
     for row in records:
         # change the ReplyCount, RetweetCount, LikeCount to integers from string
         row[3] = list(map(lambda x: convert_string_to_number(x), row[3]))
