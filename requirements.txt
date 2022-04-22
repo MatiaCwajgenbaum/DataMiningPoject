@@ -1,3 +1,5 @@
+apturl==0.5.2
+>>>>>>> bac6b05 (all)
 arrow==1.2.2
 asgiref==3.5.0
 async-generator==1.10
