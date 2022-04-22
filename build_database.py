@@ -150,7 +150,6 @@ def get_current_hashtags():
         output_list.append(name_dict['hashtag_name'])
     return output_list
 
-
 def get_current_links():
     sql = 'select * from Links'
     result = execute_sql(sql)

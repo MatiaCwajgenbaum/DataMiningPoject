@@ -86,3 +86,4 @@ def get_list_usernames_from_table(cursors):
     for name_dict in result:
         output_list.append(name_dict['tag_of_publisher'])
     return output_list
+
