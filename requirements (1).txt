@@ -1,4 +1,4 @@
-apturl==0.5.2
+
 arrow==1.2.2
 asgiref==3.5.0
 async-generator==1.10
