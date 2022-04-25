@@ -3,7 +3,7 @@
 
 Goal: scraping tweets from Twitter and storing them into a Database
 
-FILES NEEDED: Config.py, Driver.py, Tweets_Extractor.py, User_Extractor.py, build_database.py, API.py and main.py 
+FILES NEEDED: Config.py, Driver.py, Tweets_Extractor.py, User_Extractor.py, build_database.py, API.py and main.py, requirements.py
 
 Tweets_extractor.py is a class that extracts a specific number of tweets related to a certain search term,
 User_Extractor.py is a class that extracts the publishers of the tweets already extracted.
@@ -16,6 +16,9 @@ main.py is the file from where the user is invited to choose the parameters in o
   
 
 EXPLANATIONS ON HOW TO USE THE MATERIAL:
+
+0) !! User has to install manually the package apturl==0.5.2.
+
 
 1) !!!! User should first change his mysql id and password in the Config.py file.
 
