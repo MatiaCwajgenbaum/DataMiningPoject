@@ -42,7 +42,7 @@ def main(search_term, first_run, quantity_of_tweets, path_csv_file):
         logging.info("scraping Tweets")
         records_users = users.user_extract(driver)
 
-        #create database and tables if this the first running
+        # create database and tables if this the first running
         if first_run:
             logging.info("create database and tables for first running")
             create_database_and_tables()
@@ -53,7 +53,7 @@ def main(search_term, first_run, quantity_of_tweets, path_csv_file):
         update_table_tweets(records_tweets, search_term)
         driver.quit()
 
-        #API
+        # API
         logging.info("get extra information on user using Twitter API")
         # add columns to User table if this the first running
         try:
