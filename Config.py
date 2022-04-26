@@ -10,6 +10,7 @@ MAX_NUM_TWEETS = 100
 
 # This variable is the location of the text file where the user stored his twitter developper keys and tokens
 TOKEN_LOCATION = r"C:\Users\matia\OneDrive\Bureau\Twitter_api_mafteah.txt"
+USER_FIELDS = "user.fields=description,created_at,public_metrics,verified"
 
 # log file
 LOGGING_FILE = "Tweets.log"
