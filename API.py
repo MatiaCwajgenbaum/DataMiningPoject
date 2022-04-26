@@ -1,24 +1,19 @@
-import requests
-import configparser
-from build_database import *
 from Config import *
+from main import *
+import configparser
+import requests
 
 config = configparser.RawConfigParser()
 config.read(filenames=TOKEN_LOCATION)
 BEARER_TOKEN = config.get('Default', 'BEARER_TOKEN')
 
 
-def create_url(list_of_usernames):
+def create_url(user):
     """
-
     """
     usernames = "usernames="
-    for user in list_of_usernames:
-        usernames += user[1:]
-        if user != list_of_usernames[-1]:
-            usernames += ","
-    user_fields = "user.fields=description,created_at,public_metrics,verified"
-    url = "https://api.twitter.com/2/users/by?{}&{}".format(usernames, user_fields)
+    usernames += user[1:].lstrip("_")
+    url = "https://api.twitter.com/2/users/by?{}&{}".format(usernames, USER_FIELDS)
     return url
 
 
@@ -33,23 +28,24 @@ def bearer_oauth(r):
 
 def connect_to_endpoint(url):
     response = requests.request("GET", url, auth=bearer_oauth)
-    print(response.status_code)
     if response.status_code != 200:
-        raise Exception(
-            "Request returned an error: {} {}".format(
-                response.status_code, response.text
-            )
-        )
+        logging.error(f"cant get the api info from this url user {url}")
+        return 0
+    logging.info(f"the api info extract successful from this url user{url}")
     return response.json()
 
 
 def users_updater(list_of_usernames):
-    url = create_url(list_of_usernames)
-    json_response = connect_to_endpoint(url)
     rows = []
-    for user_info in json_response['data']:
+    for user in list_of_usernames:
+        url = create_url(user)
+        json_response = connect_to_endpoint(url)
+        if json_response == 0 or 'data' not in json_response:
+            rows.append([None] * 6)
+            continue
+        user_info = json_response['data'][0]
         keys = sorted(user_info.keys())
-        user_info_list = [list_of_usernames[json_response['data'].index(user_info)]]
+        user_info_list = []
         for key in keys:
             if key == 'public_metrics':
                 sub_dict = user_info[key]
@@ -71,20 +67,21 @@ def add_columns(cursors):
 
 
 def fill_new_columns(record, cursors):
-    for row in users_updater(record):
-        sql = "UPDATE users SET created_at=%s, description=%s, listed_count=%s, tweet_count=%s, verified=%s where " \
+    rows = users_updater(record)
+    for row in rows:
+        if None in row:
+            continue
+        sql = "UPDATE Users SET created_at=%s, description=%s, listed_count=%s, tweet_count=%s, verified=%s where " \
               "TAG_OF_PUBLISHER=%s"
         cursors.execute(sql,
-                        (row[1][:-4], row[2], row[5], row[6], row[8], row[0]))
-        print((row[1], row[2], row[5], row[6], row[8], row[0]))
+                        (row[0][:10], row[1], row[4], row[5], row[7], '@'+row[6]))
     connection.commit()
 
 
 def get_list_usernames_from_table(cursors):
     query = "SELECT tag_of_publisher from Users"
-    # result = cursors.execute(query)
-    cursor.execute(query)
-    result = cursor.fetchall()
+    cursors.execute(query)
+    result = cursors.fetchall()
     output_list = []
     for name_dict in result:
         output_list.append(name_dict['tag_of_publisher'])
