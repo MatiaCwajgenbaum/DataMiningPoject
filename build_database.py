@@ -26,7 +26,7 @@ def create_database():
 
 
 def use_database():
-    sql = "USE Tweets"
+    sql = "USE " + DATABASE_NAME
     execute_sql(sql)
 
 
