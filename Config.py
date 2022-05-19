@@ -1,6 +1,6 @@
 # User has to type here his own id and password for mysql
-USER = "maya95"
-PASSWORD = "MSmaya2035!"
+USER = "root"
+PASSWORD = "root"
 HOST = "localhost"
 DATABASE_NAME = 'Tweets'
 
