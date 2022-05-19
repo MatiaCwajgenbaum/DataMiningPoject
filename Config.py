@@ -2,7 +2,7 @@
 USER = "root"
 PASSWORD = "root"
 HOST = "localhost"
-DATABASE_NAME = 'Tweets'
+DATABASE_NAME = 'matia_maya'
 
 LENGTH_VARCHAR = 255
 URL = 'https://twitter.com/search?q='
